@@ -1,10 +1,10 @@
-echo -e "\t\tGenerating log interval (Estimated time 6hrs)"; ./Log FloatLogData; echo -e "\t\tLog interval generation complete"
-echo -e "\t\tGenerating log2 interval (Estimated time 6hrs)"; ./Log2 FloatLog2Data; echo -e "\t\tLog2 interval generation complete"
-echo -e "\t\tGenerating log10 interval (Estimated time 11hrs)"; ./Log10 FloatLog10Data; echo -e "\t\tLog10 interval generation complete"
-echo -e "\t\tGenerating exp interval (Estimated time 3.5hrs)"; ./Exp FloatExpData; echo -e "\t\tExp interval generation complete"
-echo -e "\t\tGenerating exp2 interval (Estimated time 3.5hrs)"; ./Exp2 FloatExp2Data; echo -e "\t\tExp2 interval generation complete"
-echo -e "\t\tGenerating exp10 interval (Estimated time 3.5hrs)"; ./Exp10 FloatExp10Data; echo -e "\t\tExp10 interval generation complete"
-echo -e "\t\tGenerating cosh interval (Estimated time 25min)"; ./Cosh FloatSinhForCoshData FloatCoshForCoshData; echo -e "\t\tcosh interval generation complete"
-echo -e "\t\tGenerating sinh interval (Estimated time 30min)"; ./Sinh FloatSinhForSinhData FloatCoshForSinhData; echo -e "\t\tsinh interval generation complete"
-echo -e "\t\tGenerating cospi interval (Estimated time 30min)"; ./Cospi FloatSinpiForCospiData FloatCospiForCospiData; echo -e "\t\tcospi interval generation complete"
-echo -e "\t\tGenerating sinpi interval (Estimated time 50min)"; ./Sinpi FloatSinpiForSinpiData FloatCospiForSinpiData; echo -e "\t\tsinpi interval generation complete"
+echo -e "Log10"; "time ./Log10 FloatLog10Data
+echo -e "Log"; time ./Log FloatLogData
+echo -e "Log2"; time ./Log2 FloatLog2Data
+echo -e "Exp"; time ./Exp FloatExpData
+echo -e "Exp2"; time ./Exp2 FloatExp2Data
+echo -e "Exp10"; time ./Exp10 FloatExp10Data
+echo -e "Cosh"; time ./Cosh FloatSinhForCoshData FloatCoshForCoshData
+echo -e "Sinh"; time ./Sinh FloatSinhForSinhData FloatCoshForSinhData
+echo -e "Cospi"; time ./Cospi FloatSinpiForCospiData FloatCospiForCospiData
+echo -e "Sinpi"; time ./Sinpi FloatSinpiForSinpiData FloatCospiForSinpiData
