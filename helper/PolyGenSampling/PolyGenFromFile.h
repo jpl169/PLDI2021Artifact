@@ -219,7 +219,7 @@ unique_ptr<Poly> GeneratePolynomialHelper(FILE* data, FILE* log,
             
             // If there are too many constraints, then quit. LP solver will
             // take too long
-            if (intervals.size() > 50000) {
+            if (intervals.size() > 35000) {
                 fprintf(log, "Too many intervals: %lu\n", intervals.size());
                 intervals.clear();
                 return unique_ptr<Poly>();
@@ -330,7 +330,6 @@ void SplitDomain(FILE* data, FILE* log, FILE* header, vector<int> power,
         for (unsigned long index = 0; index < totalSplit; index++) {
             // Compute the lower and upper indexes of constraints within the
             // sub-domain #index.
-            //printf("index = %lu\n", index);
             long int lbIndex, ubIndex;
             FindIndexOfSubDomain(data, log, header, firstIndex, lastIndex,
                                  bitsSame, sigBits, N, index,
@@ -340,8 +339,6 @@ void SplitDomain(FILE* data, FILE* log, FILE* header, vector<int> power,
             if (lbIndex >= 0 && ubIndex >= 0 && lbIndex <= ubIndex) {
                 // There is something in here
                 fprintf(log, "\tINDEX %lu\n", index);
-                fprintf(log, "\t\tlbindex = %ld\n", lbIndex);
-                fprintf(log, "\t\tubindex = %ld\n", ubIndex);
                 // So generate a polynomial for this subdomain
                 unique_ptr<Poly> p =
                 GeneratePolynomial(data, log, lbIndex, ubIndex, power);
@@ -391,6 +388,7 @@ void SplitDomain(FILE* data, FILE* log, FILE* header, vector<int> power,
             }
             fprintf(header, "};\n");
             fflush(header);
+            fprintf(log, "polynomial coefficient written to file");
         } else {
             fprintf(log, "Could not generate a piece-wise polynomial.");
         }
