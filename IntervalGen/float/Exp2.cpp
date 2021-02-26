@@ -6,14 +6,6 @@ float IntervalGenerator::MpfrCalculateFunction(float x) {
     mpfr_set_d(mval, x, MPFR_RNDN);
     mpfr_exp2(mval, mval, MPFR_RNDN);
     return FromMPFR(mval);
-    
-    // If you want to make it run faster, you can try the below code. Run it at
-    // your own risk.
-    /*
-    if (x == 2.96957581304013729095458984375e-03) return 1.00206053256988525390625;
-    if (x == -2.974377386271953582763671875e-02) return 9.79594290256500244140625e-01;
-    return (float)exp2((double)x);
-     */
 }
 
 bool IntervalGenerator::ComputeSpecialCase(float x, float& res) {

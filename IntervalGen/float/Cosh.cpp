@@ -6,12 +6,6 @@ float IntervalGenerator2::MpfrCalculateFunction(float x) {
     mpfr_set_d(mval, x, MPFR_RNDN);
     mpfr_cosh(mval, mval, MPFR_RNDN);
     return FromMPFR(mval);
-    
-    // If you want to run this faster, you can try this. Use it at your own risk
-    /*
-    double res = cosh((double)x);
-    return (float)res;
-     */
 }
 
 bool IntervalGenerator2::ComputeSpecialCase(float x, float& res) {

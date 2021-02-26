@@ -6,10 +6,6 @@ float IntervalGenerator::MpfrCalculateFunction(float x) {
     mpfr_set_d(mval, x, MPFR_RNDN);
     mpfr_log2(mval, mval, MPFR_RNDN);
     return FromMPFR(mval);
-    
-    // If you want to make it run faster, you can try the below code. Run it at
-    // your own risk.
-    // return log2((double)x);
 }
 
 bool IntervalGenerator::ComputeSpecialCase(float x, float& res) {
