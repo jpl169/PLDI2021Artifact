@@ -371,9 +371,10 @@ void SplitDomain(FILE* data, FILE* log, FILE* header, vector<int> power,
         // write the coefficients and other information to the header file.
         if (completed) {
             // Write stuff to header file
-            fprintf(header, "unsigned %sBitsSame = %lu;\n", nameOfArray, bitsSame);
-            fprintf(header, "unsigned %sN = %lu;\n", nameOfArray, N);
-            fprintf(header, "double %s[%lu][%d] = {\n", nameOfArray, totalSplit, maxTermNum);
+            fprintf(header, "#define %sBitsSame = %lu\n", nameOfArray, bitsSame);
+            fprintf(header, "#define %sN = %lu\n", nameOfArray, N);
+            fprintf(header, "static const double %s[%lu][%d] = {\n",
+                    nameOfArray, totalSplit, maxTermNum);
             for (int i = 0; i < totalSplit; i++) {
                 fprintf(header, "\t{\n");
                 for (int j = 0; j < maxTermNum; j++) {
