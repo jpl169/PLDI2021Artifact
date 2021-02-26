@@ -1,4 +1,4 @@
-echo -e "Log10"; "time ./Log10 FloatLog10Data
+echo -e "Log10"; time ./Log10 FloatLog10Data
 echo -e "Log"; time ./Log FloatLogData
 echo -e "Log2"; time ./Log2 FloatLog2Data
 echo -e "Exp"; time ./Exp FloatExpData
