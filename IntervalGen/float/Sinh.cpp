@@ -236,8 +236,7 @@ int main(int argc, char** argv) {
     }
     
     IntervalGenerator2 SinhIntGen;
-    //SinhIntGen.CreateReducedIntervalFile(0x0, 0x80000000, argv[1], argv[2]);
-    SinhIntGen.CreateReducedIntervalFile(1000000000, 1001000000, argv[1], argv[2]);
+    SinhIntGen.CreateReducedIntervalFile(0x0, 0x80000000, argv[1], argv[2]);
     
     return 0;
 }

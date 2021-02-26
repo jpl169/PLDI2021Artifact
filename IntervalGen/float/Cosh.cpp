@@ -243,7 +243,6 @@ int main(int argc, char** argv) {
     }
     
     IntervalGenerator2 CoshIntGen;
-//    CoshIntGen.CreateReducedIntervalFile(0x0, 0x80000000, argv[1], argv[2]);
-    CoshIntGen.CreateReducedIntervalFile(1000000000, 1001000000, argv[1], argv[2]);
+    CoshIntGen.CreateReducedIntervalFile(0x0, 0x80000000, argv[1], argv[2]);
     return 0;
 }

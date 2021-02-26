@@ -372,7 +372,6 @@ int main(int argc, char** argv) {
     }
     
     IntervalGenerator2 SinpiIntGen;
-    //SinpiIntGen.CreateReducedIntervalFile(0x0, 0x40000001llu, argv[1], argv[2]);
-    SinpiIntGen.CreateReducedIntervalFile(0x40000001llu - 1000000llu, 0x40000001llu, argv[1], argv[2]);
+    SinpiIntGen.CreateReducedIntervalFile(0x0, 0x40000001llu, argv[1], argv[2]);
     return 0;
 }

@@ -9,10 +9,13 @@ CPP_FLAGS= -O2 -std=c++17
 
 LD_FLAGS= -lmpfr -lz -lm
 
-all: $(objects)
+all: $(objects) MergeTwoFiles
 
 $(objects): %: %.cpp
 	$(CC) $(CPP_FLAGS) $(INCLUDES) $^ $(LD_FLAGS) -o $@
 
+MergeTwoFiles: MergeTwoFiles.cpp
+	$(CC) MergeTwoFiles.cpp -o MergeTwoFiles
+
 clean:
-	rm -rf *.o $(objects) *~ *.dSYM
+	rm -rf *.o $(objects) *~ *.dSYM MergeTwoFiles

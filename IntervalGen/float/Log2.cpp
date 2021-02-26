@@ -145,8 +145,7 @@ int main(int argc, char** argv) {
     }
     
     IntervalGenerator Log2IntGen;
-    //Log2IntGen.CreateReducedIntervalFile(argv[1]);
-    Log2IntGen.CreateReducedIntervalFile(1000000000, 1001000000, argv[1]);
+    Log2IntGen.CreateReducedIntervalFile(argv[1]);
     
     mpfr_clear(mval);
     return 0;
