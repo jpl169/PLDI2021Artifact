@@ -29,23 +29,8 @@ void RunCorrectnessTest(char const* FunctionName, char* resFileName) {
         // if bres is nan and bmy is nan, continue
         if (bres != bres && bfy != bfy && bdy != bdy) continue;
         
-        if (bfy != bres) {
-            wrongFMlibCount++;
-            unsigned int error = m_ulpf(bfy, bmy);
-            if (error > maxUlpFMlib) {
-                maxUlpFMlib = error;
-                maxXFMlib = x;
-            }
-        }
-        
-        if (bdy != bres) {
-            wrongDMlibCount++;
-            unsigned int error = m_ulpf(bdy, bmy);
-            if (error > maxUlpDMlib) {
-                maxUlpDMlib = error;
-                maxXDMlib = x;
-            }
-        }
+        if (bfy != bres) wrongFMlibCount++;
+        if (bdy != bres) wrongDMlibCount++;
     }
     
     FILE* f = fopen(resFileName, "w");
