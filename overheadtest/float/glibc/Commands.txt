@@ -1,4 +1,3 @@
-#!/bin/bash
 ./Log Log_FG_Result.txt
 ./Log2 Log2_FG_Result.txt
 ./Log10 Log10_FG_Result.txt

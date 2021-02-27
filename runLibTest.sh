@@ -21,7 +21,7 @@ echo -e "\033[1m\tBuilding done \033[0m"
 
 echo -e "\033[1m* Performing math library correctness test \033[0m"
 echo -e "\033[1m\tParallelism: $parallelism jobs\033[0m"
-echo -e "\033[1m\t* PRLibm and GLibc math library correctness test \033[0m"
+echo -e "\033[1m\t* PWLibm and GLibc math library correctness test \033[0m"
 cd libtest/float/glibc
 make --silent clean
 make --silent
@@ -37,9 +37,9 @@ cat Log2_FGResult.txt
 cat Log10_FGResult.txt
 cat Sinh_FGResult.txt
 cat Cosh_FGResult.txt
-echo -e "\033[1m\tPRLibm and GLibc math library test complete \033[0m"
+echo -e "\033[1m\tPWLibm and GLibc math library test complete \033[0m"
 
-echo -e "\033[1m\t* PRLibm against Intel math library test \033[0m"
+echo -e "\033[1m\t* PWLibm against Intel math library test \033[0m"
 cd ../intel
 make --silent clean
 make --silent
@@ -57,6 +57,6 @@ cat Sinh_FIResult.txt
 cat Cosh_FIResult.txt
 cat Sinpi_FIResult.txt
 cat Cospi_FIResult.txt
-echo -e "\033[1m\tPRLibm against Intel math library test complete \033[0m"
+echo -e "\033[1m\tPWLibm against Intel math library test complete \033[0m"
 
 cd ../../..

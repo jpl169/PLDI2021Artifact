@@ -1,6 +1,6 @@
 CC = g++
 
-funcNames = Log Log2 Log10 Exp Exp2 Exp10 Cosh Sinh Log2_8 Log10_8
+funcNames = Log Log2 Log10 Exp Exp2 Exp10 Cosh Sinh
 
 src = $(patsubst %, %.cpp, $(funcNames))
 obj = $(patsubst %, %, $(funcNames))

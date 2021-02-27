@@ -33,8 +33,12 @@ void RunTest(char* FileName) {
     }
     
     FILE* f = fopen(FileName, "w");
-    fprintf(f, "%.5f, ", 1.0 * fMlibTime / rlibmTime);
-    fprintf(f, "%.5f\n", 1.0 * dMlibTime / rlibmTime);
+    if (increment) {
+        fprintf(f, "%.5f, ", 1.0 * fMlibTime / rlibmTime);
+        fprintf(f, "%.5f\n", 1.0 * dMlibTime / rlibmTime);
+    } else {
+        fprintf(f, "%.5f, ", 1.0 * fMlibTime / rlibmTime);
+        fprintf(f, "%.5f\n", 1.0 * dMlibTime / rlibmTime);
+    }
     fclose(f);
-    printf("increment = %lu\n", increment);
 }
