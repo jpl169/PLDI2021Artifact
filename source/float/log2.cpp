@@ -1,6 +1,6 @@
 #include "float_math.h"
-#include "float_headers/constants.h"
-#include "float_headers/Log2_8.h"
+#include "luts.h"
+#include "float_headers/Log2.h"
 
 float rlibm_log2_8(float x) {
     floatX fix, fit;
@@ -36,7 +36,7 @@ float rlibm_log2_8(float x) {
     fit.x |= 0x3F800000;
     
     double f = fix.f - fit.f;
-    f *= log_oneByF[FIndex];
+    f *= log2OneByF[FIndex];
     
     // Find the index of polynomial coefficients
     doubleX dX;
@@ -51,5 +51,5 @@ float rlibm_log2_8(float x) {
     y += coeff[0];
     y *= f;
     
-    return y + log2_lut[FIndex] + m;
+    return y + log2Lut[FIndex] + m;
 }

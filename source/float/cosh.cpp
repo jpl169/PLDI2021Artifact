@@ -1,7 +1,7 @@
 #include "float_math.h"
 #include "float_headers/Sinh.h"
 #include "float_headers/Cosh.h"
-#include "float_headers/constants.h"
+#include "luts.h"
 
 #define CONST64BYLN2 92.332482616893656768297660164535045623779296875
 #define LN2BY64 0.01083042469624914509729318723429969395510852336883544921875
@@ -29,10 +29,10 @@ float rlibm_cosh(float x) {
     double R = fx.f - N * LN2BY64;
     double R2 = R * R;
     
-    double sinhHigh = sinhKLn2[I];
-    double coshHigh = coshKLn2[I];
-    double sinhMid = sinhKLn2By64[N2];
-    double coshMid = coshKLn2By64[N2];
+    double sinhHigh = sinhH[I];
+    double coshHigh = coshH[I];
+    double sinhMid = sinhM[N2];
+    double coshMid = coshM[N2];
     
     double sinhHM = sinhHigh * coshMid + coshHigh * sinhMid;
     double coshHM = sinhHigh * sinhMid + coshHigh * coshMid;

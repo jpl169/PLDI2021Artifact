@@ -1,9 +1,6 @@
 #include "float_math.h"
-#include "float_headers/constants.h"
-#include "float_headers/Log10_8.h"
-
-#define LOG102HIGH 0.30102999566398114250631579125183634459972381591796875
-#define LOG102LOW  5.27074231034726570126349709198449199648263806413338306011695522101945243775844573974609375e-17
+#include "luts.h"
+#include "float_headers/Log10.h"
 
 float rlibm_log10_8(float x) {
     floatX fix, fit;
@@ -39,7 +36,7 @@ float rlibm_log10_8(float x) {
     fit.x |= 0x3F800000;
     
     double f = fix.f - fit.f;
-    f *= log_oneByF[FIndex];
+    f *= log2OneByF[FIndex];
     
     // Find the index of polynomial coefficients
     doubleX dX;
@@ -55,7 +52,7 @@ float rlibm_log10_8(float x) {
     y *= f;
     
     y += m * LOG102LOW;
-    y += log10_lut[FIndex];
+    y += log10Lut[FIndex];
     y += m * LOG102HIGH;
     return y;
 }

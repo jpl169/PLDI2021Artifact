@@ -1,5 +1,9 @@
 CC = g++
 
+ifeq ($(INCLUDE),)
+INCLUDE=include-reference/
+endif
+
 floatFNames = log log2 log10 exp exp2 exp10 sinh cosh sinpi cospi
 p32FNames = log2 log log10
 
@@ -18,7 +22,7 @@ all: $(libDir)/floatMathLib.a $(libDir)/posit32MathLib.a
 
 $(floatObjDir)/%.o: $(floatSrcDir)/%.cpp
 	@mkdir -p $(floatObjDir)
-	$(CC) -std=c++11 -O3 -c $^ -Iinclude/ -o $@
+	$(CC) -std=c++11 -O3 -c $^ -I$(INCLUDE) -o $@
 
 $(libDir)/floatMathLib.a: $(floatObj)
 	@mkdir -p $(libDir)
@@ -26,7 +30,7 @@ $(libDir)/floatMathLib.a: $(floatObj)
 
 $(p32ObjDir)/%.o: $(p32SrcDir)/%.cpp
 	@mkdir -p $(p32ObjDir)
-	$(CC) -std=c++11 -O3 -c $^ -Iinclude/ -I$(SOFTPOSITPATH)/source/include -o $@
+	$(CC) -std=c++11 -O3 -c $^ -I$(INCLUDE) -I$(SOFTPOSITPATH)/source/include -o $@
 
 $(libDir)/posit32MathLib.a: $(p32Obj)
 	@mkdir -p $(libDir) 

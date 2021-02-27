@@ -1,9 +1,7 @@
 #include "float_math.h"
 #include "float_headers/Sinpi.h"
 #include "float_headers/Cospi.h"
-#include "float_headers/constants.h"
-
-#define PI 3.141592653589793115997963468544185161590576171875
+#include "luts.h"
 
 float rlibm_sinpi(float x) {
     floatX fX;

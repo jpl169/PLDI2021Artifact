@@ -1,6 +1,6 @@
 #include "float_math.h"
 #include "float_headers/Exp10.h"
-#include "float_headers/constants.h"
+#include "luts.h"
 #include "math.h"
 
 float rlibm_exp10(float x) {

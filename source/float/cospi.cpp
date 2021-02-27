@@ -1,8 +1,7 @@
 #include "float_math.h"
 #include "float_headers/Sinpi.h"
 #include "float_headers/Cospi.h"
-#include "float_headers/constants.h"
-#include "stdio.h"
+#include "luts.h"
 
 float rlibm_cospi(float x) {
     floatX fX;

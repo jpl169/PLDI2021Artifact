@@ -18,7 +18,7 @@ int main(int argc, char** argv) {
     std::vector<int> posPower({0, 1, 2, 3});
     GeneratePiecewiseFunction(f, log, header,
                               negPower, 6, "negExp10Coeffs",
-                              posPower, 7, "posExp10Coeffs");
+                              posPower, 8, "posExp10Coeffs");
     
     fclose(f);
     fclose(log);

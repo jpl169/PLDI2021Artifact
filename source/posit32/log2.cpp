@@ -1,5 +1,5 @@
 #include "posit32_math.h"
-#include "posit32_headers/constants.h"
+#include "luts.h"
 #include "posit32_headers/Log2.h"
 
 posit32_t rlibm_log2(posit32_t x) {
@@ -24,7 +24,7 @@ posit32_t rlibm_log2(posit32_t x) {
     fit.x |= 0x3FF0000000000000lu;
     
     dX.d = fix.d - fit.d;
-    dX.d *= oneByF[FIndex];
+    dX.d *= log2OneByF[FIndex];
     
     // Figure out index. 7 bits are the same.
     unsigned long index = (dX.x & 0x01FFFFFFFFFFFFFFlu) >> 49;
@@ -41,7 +41,7 @@ posit32_t rlibm_log2(posit32_t x) {
     y *= dX.d;
     
     // Output compensation
-    double retVal = log2OneDotF[FIndex];
+    double retVal = log2OneByF[FIndex];
     retVal += m;
     retVal += y;
     return convertDoubleToP32(retVal);

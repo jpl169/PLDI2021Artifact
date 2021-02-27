@@ -1,5 +1,5 @@
 #include "float_math.h"
-#include "float_headers/constants.h"
+#include "luts.h"
 #include "float_headers/Log.h"
 
 #define LN2HIGH 0.69314718055994528622676398299518041312694549560546875
@@ -38,7 +38,7 @@ float rlibm_log(float x) {
     fit.x |= 0x3F800000;
     
     double f = fix.f - fit.f;
-    f *= log_oneByF[FIndex];
+    f *= log2OneByF[FIndex];
     
     // Find the index of polynomial coefficients
     doubleX dX;
@@ -53,7 +53,7 @@ float rlibm_log(float x) {
     y += coeffs[0];
     y *= f;
     
-    y += ln_lutHIGH[FIndex];
+    y += lnLutHIGH[FIndex];
     y += m * LN2HIGH;
     
     return y;
