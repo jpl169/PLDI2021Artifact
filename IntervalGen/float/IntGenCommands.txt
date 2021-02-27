@@ -1,10 +1,10 @@
-echo -e "Log10"; time ./Log10 FloatLog10Data
-echo -e "Log"; time ./Log FloatLogData
-echo -e "Log2"; time ./Log2 FloatLog2Data
-echo -e "Exp"; time ./Exp FloatExpData
-echo -e "Exp2"; time ./Exp2 FloatExp2Data
-echo -e "Exp10"; time ./Exp10 FloatExp10Data
-echo -e "Cosh"; time ./Cosh FloatSinhForCoshData FloatCoshForCoshData
-echo -e "Sinh"; time ./Sinh FloatSinhForSinhData FloatCoshForSinhData
-echo -e "Cospi"; time ./Cospi FloatSinpiForCospiData FloatCospiForCospiData
-echo -e "Sinpi"; time ./Sinpi FloatSinpiForSinpiData FloatCospiForSinpiData
+./Log10 FloatLog10Data
+./Log FloatLogData
+./Log2 FloatLog2Data
+./Exp FloatExpData
+./Exp2 FloatExp2Data
+./Exp10 FloatExp10Data
+./Cosh FloatSinhForCoshData FloatCoshForCoshData
+./Sinh FloatSinhForSinhData FloatCoshForSinhData
+./Cospi FloatSinpiForCospiData FloatCospiForCospiData
+./Sinpi FloatSinpiForSinpiData FloatCospiForSinpiData
