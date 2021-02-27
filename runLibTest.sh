@@ -23,8 +23,8 @@ echo -e "\033[1m* Performing math library correctness test \033[0m"
 echo -e "\033[1m\tParallelism: $parallelism jobs\033[0m"
 echo -e "\033[1m\t* PRLibm and GLibc math library correctness test \033[0m"
 cd libtest/float/glibc
-make -s clean
-make
+make --silent clean
+make --silent
 cat Comamnds.txt | parallel -j $parallelism
 make clean
 
@@ -41,8 +41,8 @@ echo -e "\033[1m\tPRLibm and GLibc math library test complete \033[0m"
 
 echo -e "\033[1m\t* PRLibm against Intel math library test \033[0m"
 cd ../intel
-make -s clean
-make
+make --silent clean
+make --silent
 cat Comamnds.txt | parallel -j $parallelism
 make clean
 
