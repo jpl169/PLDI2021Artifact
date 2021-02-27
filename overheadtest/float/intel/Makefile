@@ -1,6 +1,6 @@
 CC = $(ICCPATH)/bin/icc
 
-funcNames = Log Log2 Log10 Exp Exp2 Exp10 Sinh Cosh Cospi Sinpi Log2_8 Log10_8
+funcNames = Log Log2 Log10 Exp Exp2 Exp10 Sinh Cosh Cospi Sinpi
 
 src = $(patsubst %, %.cpp, $(funcNames))
 obj = $(patsubst %, %, $(funcNames))
