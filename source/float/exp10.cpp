@@ -42,7 +42,7 @@ float rlibm_exp10(float x) {
     double y;
     if (dX.x > 0x8000000000000000) {
         unsigned index = (dX.x & 0x03FFFFFFFFFFFFFF) >> 52lu;
-        const double* coeff = exp10NegCoeffs[index];
+        const double* coeff = negExp10Coeffs[index];
         
         y = coeff[4];
         y *= R;
@@ -56,7 +56,7 @@ float rlibm_exp10(float x) {
     }
     else {
         unsigned index = (dX.x & 0x03FFFFFFFFFFFFFF) >> 50lu;
-        const double* coeff = exp10PosCoeffs[index];
+        const double* coeff = posExp10Coeffs[index];
         y = coeff[3];
         y *= R;
         y += coeff[2];

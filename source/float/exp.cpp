@@ -41,8 +41,8 @@ float rlibm_exp(float x) {
     // Find the polynomial coefficients to use.
     const double* coeff;
     unsigned index = (dX.x & 0x03FFFFFFFFFFFFFF) >> 51;
-    if (dX.x > 0x8000000000000000) coeff = expNegCoeffs[index];
-    else coeff = expPosCoeffs[index];
+    if (dX.x > 0x8000000000000000) coeff = negExpCoeffs[index];
+    else coeff = posExpCoeffs[index];
     
     // Compute polynomial
     double y = coeff[4];

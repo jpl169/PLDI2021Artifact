@@ -44,7 +44,7 @@ float rlibm_log(float x) {
     doubleX dX;
     dX.d = f;
     unsigned long index = (dX.x & 0x01FFFFFFFFFFFFFFlu) >> 47lu;
-    const double* coeffs = logCoeffs[index];
+    const double* coeffs = LogCoeffs[index];
 
     double y = coeffs[2];
     y *= f;

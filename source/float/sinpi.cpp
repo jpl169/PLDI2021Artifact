@@ -37,18 +37,18 @@ float rlibm_sinpi(float x) {
     double R2 = R * R;
     
     double cospiR, sinpiR;
-    sinpiR = S2;
+    sinpiR = SinpiCoeffs[0][2];
     sinpiR *= R2;
-    sinpiR += S1;
+    sinpiR += SinpiCoeffs[0][1];
     sinpiR *= R2;
-    sinpiR += S0;
+    sinpiR += SinpiCoeffs[0][0];
     sinpiR *= R;
     
-    cospiR = C2;
+    cospiR = CospiCoeffs[0][2];
     cospiR *= R2;
-    cospiR += C1;
+    cospiR += CospiCoeffs[0][1];
     cospiR *= R2;
-    cospiR += C0;
+    cospiR += CospiCoeffs[0][0];
         
     fX.f = sinpiMBy512[N2] * cospiR + cospiMBy512[N2] * sinpiR;
     fX.x ^= s;

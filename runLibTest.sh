@@ -1,33 +1,62 @@
 #!/bin/bash
 
+parallelism=8
 
-echo -e "\033[1mBuilding math libraries \033[0m"
+while getopts j: flag
+do
+    case "${flag}" in
+        j) parArg=${OPTARG};;
+    esac
+done
+
+if [ "$parArg" -eq "$parArg" ] 2>/dev/null
+then
+   parallelism=$parArg
+fi
+
+echo -e "\033[1m* Building math libraries \033[0m"
 make -s clean
 make -s
+echo -e "\033[1m\tBuilding done \033[0m"
 
-
-echo -e "\033[1mTesting bfloat16 math library correctness \033[0m"
-cd libtest/bfloat16
+echo -e "\033[1m* Performing math library correctness test \033[0m"
+echo -e "\033[1m\tParallelism: $parallelism jobs\033[0m"
+echo -e "\033[1m\t* PRLibm and GLibc math library correctness test \033[0m"
+cd libtest/float/glibc
 make -s clean
-make -s
-./runAll.sh
+make
+cat Comamnds.txt | parallel -j $parallelism
+make clean
+
+echo -e "\033[1m\tResult: \033[0m"
+cat Exp_FGResult.txt
+cat Exp2_FGResult.txt
+cat Exp10_FGResult.txt
+cat Log_FGResult.txt
+cat Log2_FGResult.txt
+cat Log10_FGResult.txt
+cat Sinh_FGResult.txt
+cat Cosh_FGResult.txt
+echo -e "\033[1m\tPRLibm and GLibc math library test complete \033[0m"
+
+echo -e "\033[1m\t* PRLibm against Intel math library test \033[0m"
+cd ../intel
 make -s clean
+make
+cat Comamnds.txt | parallel -j $parallelism
+make clean
 
+echo -e "\033[1m\tResult: \033[0m"
+cat Exp_FIResult.txt
+cat Exp2_FIResult.txt
+cat Exp10_FIResult.txt
+cat Log_FIResult.txt
+cat Log2_FIResult.txt
+cat Log10_FIResult.txt
+cat Sinh_FIResult.txt
+cat Cosh_FIResult.txt
+cat Sinpi_FIResult.txt
+cat Cospi_FIResult.txt
+echo -e "\033[1m\tPRLibm against Intel math library test complete \033[0m"
 
-echo -e "\033[1mTesting posit16 math library correctness \033[0m"
-cd ../posit16
-make -s clean
-make -s
-./runAll.sh
-make -s clean
-
-
-echo -e "\033[1mTesting float math library correctness \033[0m"
-cd ../float
-make -s clean
-make -s
-./runAll.sh
-make -s clean
-
-
-cd ../..
+cd ../../..

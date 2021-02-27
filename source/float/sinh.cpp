@@ -41,8 +41,8 @@ float rlibm_sinh(float x) {
     // Find the polynomial coefficients to use.
     unsigned long Index = (dX.x & 0x03FFFFFFFFFFFFFFlu) >> 52lu;
     
-    const double* sinhCoeff = Sinh[Index];
-    const double* coshCoeff = Cosh[Index];
+    const double* sinhCoeff = SinhCoeffs[Index];
+    const double* coshCoeff = CoshCoeffs[Index];
     
     // Compute sinh component
     double sinhL = sinhCoeff[2];

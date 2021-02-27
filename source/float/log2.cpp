@@ -2,7 +2,7 @@
 #include "luts.h"
 #include "float_headers/Log2.h"
 
-float rlibm_log2_8(float x) {
+float rlibm_log2(float x) {
     floatX fix, fit;
     fix.f = x;
     int m = 0;
@@ -42,7 +42,7 @@ float rlibm_log2_8(float x) {
     doubleX dX;
     dX.d = f;
     unsigned long index = (dX.x & 0x01FFFFFFFFFFFFFFlu) >> 49lu;
-    const double* coeff = coeffs8[index];
+    const double* coeff = Log2Coeffs[index];
 
     double y = coeff[2];
     y *= f;

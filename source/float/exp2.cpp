@@ -43,11 +43,11 @@ float rlibm_exp2(float x) {
     const double* coeff;
     if (dX.x > 0x8000000000000000) {
         unsigned long index = (dX.x & 0x01FFFFFFFFFFFFFFlu) >> 53lu;
-        coeff = exp2NegCoeffs[index];
+        coeff = negExp2Coeffs[index];
     }
     else {
         unsigned long index = (dX.x & 0x01FFFFFFFFFFFFFFlu) >> 54lu;
-        coeff = exp2PosCoeffs[index];
+        coeff = posExp2Coeffs[index];
     }
     
     // Compute polynomial
