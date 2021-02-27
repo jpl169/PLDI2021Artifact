@@ -1,21 +1,8 @@
 #!/bin/bash
-echo "Building math libraries"
+echo -e "\033[1m* Building math libraries \033[0m"
 make -s clean
 make -s
-
-echo "Measuring bfloat16 math library speed"
-cd overheadtest/bfloat16
-make -s clean
-make -s
-./runAll.sh
-make -s clean
-
-echo "Measuring posit16 math library speed"
-cd ../posit16
-make -s clean
-make -s
-./runAll.sh
-make -s clean
+echo -e "\033[1m\tBuilding done \033[0m"
 
 echo "Measuring float math library speed"
 cd ../float
