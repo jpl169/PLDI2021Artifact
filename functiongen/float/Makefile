@@ -11,8 +11,10 @@ objects = 	Log \
 
 CC=g++
 
+ADDTL +=
+
 INCLUDES= -I$(SOFTPOSITPATH)/source/include -I$(SOPLEXPATH)/src
-CPP_FLAGS+= -O2 -fvisibility=hidden -fvisibility-inlines-hidden --std=c++17 -I../../helper/
+CPP_FLAGS += $(ADDTL) -O2 -fvisibility=hidden -fvisibility-inlines-hidden --std=c++17 -I../../helper/
 LD_FLAGS= $(SOFTPOSITPATH)/build/Linux-x86_64-GCC/softposit.a $(SOPLEXPATH)/build/lib/libsoplex.a -lmpfr -lgmp  -lz -lm
 
 all: $(objects)
