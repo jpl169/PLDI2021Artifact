@@ -8,7 +8,7 @@ obj = $(patsubst %, %, $(funcNames))
 all: $(obj)
 
 %: %.cpp
-	$(CC) -std=c++11 -fp-model precise -fp-model strict -fp-model source -no-ftz -I../../../helper/ -I../../../include/  $^ ../../../lib/floatMathLib.a $(ICCPATH)/lib/intel64/libimf.a -lmpfr -lgmp -o $@
+	$(CC) -std=c++11 -fp-model strict -fp-model source -no-ftz -I../../../helper/ -I../../../include/  $^ ../../../lib/floatMathLib.a $(ICCPATH)/lib/intel64/libimf.a -lmpfr -lgmp -o $@
 
 clean:
 	rm -rf $(obj) *.dSYM
