@@ -18,7 +18,7 @@ fi
 echo -e "\033[1m* Compiling function generation code\033[0m"
 cd functiongen/float
 make --silent clean
-make --silent
+make --silent CPP_FLAGS=-w
 echo -e "\033[1m\tCompilation finished\033[0m"
 
 #2. Run function generation program in parallel
