@@ -25,7 +25,7 @@ echo -e "\033[1m\t* PWLibm against GLibc math library \033[0m"
 cd overheadtest/float/glibc
 make --silent clean
 make --silent
-cat Comamnds.txt | parallel -j $parallelism
+cat Commands.txt | parallel -j $parallelism
 make clean
 
 echo -e "\033[1m* Performing math library overhead test \033[0m"
@@ -34,6 +34,6 @@ echo -e "\033[1m\t* PWLibm against Intel math library \033[0m"
 cd ../intel
 make --silent clean
 make --silent
-cat Comamnds.txt | parallel -j $parallelism
+cat Commands.txt | parallel -j $parallelism
 make clean
 

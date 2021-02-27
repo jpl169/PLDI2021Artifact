@@ -25,7 +25,7 @@ echo -e "\033[1m\t* PWLibm and GLibc math library correctness test \033[0m"
 cd libtest/float/glibc
 make --silent clean
 make --silent
-cat Comamnds.txt | parallel -j $parallelism
+cat Commands.txt | parallel -j $parallelism
 make clean
 
 echo -e "\033[1m\tResult: \033[0m"
