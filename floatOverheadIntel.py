@@ -30,9 +30,6 @@ adCount = len(againstDouble)
 adSum = sum(againstDouble)
 againstDouble.append(adSum / adCount)
 
-print(againstFloat)
-print(againstDouble)
-
 x = np.arange(len(labels))  # the label locations
 width = 0.35  # the width of the bars
 
