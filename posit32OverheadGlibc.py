@@ -3,7 +3,7 @@ againstDouble = []
 
 fileName = ["Log_PG_Result.txt", "Log2_PG_Result.txt", "Log10_PG_Result.txt"]
 
-for i in range(0, 8) :
+for i in range(0, 3) :
     fp = open("overheadtest/posit32/glibc/" + fileName[i], "r")
     line = fp.readline()
     againstDouble.append(float(line))

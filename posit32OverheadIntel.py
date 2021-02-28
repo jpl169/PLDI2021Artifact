@@ -3,7 +3,7 @@ againstDouble = []
 
 fileName = ["Log_PI_Result.txt", "Log2_PI_Result.txt", "Log10_PI_Result.txt"]
 
-for i in range(0, 8) :
+for i in range(0, 3) :
     fp = open("overheadtest/posit32/intel/" + fileName[i], "r")
     line = fp.readline()
     againstDouble.append(float(line))
