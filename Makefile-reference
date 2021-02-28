@@ -1,7 +1,7 @@
 CC = g++
 
 ifeq ($(INCLUDE),)
-INCLUDE=include/
+INCLUDE=include-reference/
 endif
 
 floatFNames = log log2 log10 exp exp2 exp10 sinh cosh sinpi cospi
