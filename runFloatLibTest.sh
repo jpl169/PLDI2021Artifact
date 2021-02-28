@@ -44,7 +44,7 @@ cd ../intel
 make --silent clean
 make --silent
 cat Commands.txt | parallel -j $parallelism
-make clean
+make --silent clean
 
 echo -e "\033[1m\tResult: \033[0m"
 cat Exp_FIResult.txt
