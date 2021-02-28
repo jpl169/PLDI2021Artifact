@@ -16,7 +16,7 @@ fi
 
 echo -e "\033[1m* Building math libraries \033[0m"
 make -s clean
-make -s -f Makefile-reference
+make -s -f Makefile
 echo -e "\033[1m\tBuilding done \033[0m"
 
 echo -e "\033[1m* Performing math library overhead test \033[0m"
