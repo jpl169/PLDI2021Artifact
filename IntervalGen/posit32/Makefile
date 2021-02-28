@@ -1,9 +1,11 @@
-objects = Log Log2 Log10 Exp2 Exp Exp10 Cosh Sinh Sinpi Cospi
+objects = Log Log2 Log10
+
+
 CC=g++
 
 INCLUDES= -I$(SOFTPOSITPATH)/source/include  -I../../helper/
 
-CPP_FLAGS= -O2
+CPP_FLAGS= -O2 -std=c++17
 
 LD_FLAGS= $(SOFTPOSITPATH)/build/Linux-x86_64-GCC/softposit.a -lmpfr -lz -lm
 
@@ -13,4 +15,4 @@ $(objects): %: %.cpp
 	$(CC) $(CPP_FLAGS) $(INCLUDES) $^ $(LD_FLAGS) -o $@
 
 clean:
-	rm -rf *.o $(objects) *~ *.dSYM
+	rm -rf *.o $(objects) *~ *.dSYM MergeTwoFiles

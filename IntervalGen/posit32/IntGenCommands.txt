@@ -1,0 +1,3 @@
+./Log10 Posit32Log10Data
+./Log Posit32LogData
+./Log2 Posit32Log2Data

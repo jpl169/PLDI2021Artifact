@@ -28,7 +28,7 @@ posit32_t rlibm_log10(posit32_t x) {
     
     // Figure out index. 7 bits are the same. 64 - (7 + 12) = 64 - 19 = 45
     unsigned long index = (dX.x & 0x01FFFFFFFFFFFFFFlu) >> 45;
-    const double* coeff = log10coeffs[index];
+    const double* coeff = Log10coeffs[index];
     
     // Compute polynomial
     double y = coeff[2];

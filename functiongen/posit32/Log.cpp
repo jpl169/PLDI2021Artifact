@@ -14,11 +14,8 @@ int main(int argc, char** argv) {
     FILE* log = fopen(argv[2], "w");
     FILE* header = fopen(argv[3], "w");
     
-    int minN = -1;
-    if (argc == 5) minN = atoi(argv[4]);
-    
-    std::vector<int> power({0, 1, 2, 3, 4, 5, 6, 7, 8, 9});
-    GeneratePiecewiseFunction(f, log, header, power, minN);
+    std::vector<int> power({1, 2, 3, 4});
+    GeneratePiecewiseFunction(f, log, header, power, 11, "LogCoeffs");
     
     fclose(f);
     fclose(log);
