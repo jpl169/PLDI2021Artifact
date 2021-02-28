@@ -95,11 +95,6 @@ void RunCorrectnessTest(char const* FunctionName, char* resFileName) {
     unsigned long wrongRlibmCount = 0;
     unsigned long wrongDMlibCount = 0;
     unsigned long count = 0;
-    
-    unsigned int maxUlpRlibm = 0;
-    unsigned int maxUlpDMlib = 0;
-    posit32_t maxXRlibm;
-    posit32_t maxXDMlib;
 
     posit32_t x;
     for (count = 0; count < 0x100000000; count++) {
@@ -110,27 +105,9 @@ void RunCorrectnessTest(char const* FunctionName, char* resFileName) {
         posit32_t bdy = dMlibTest(x);
         
         // Otherwise check if the output is correct
-        if (!p32_eq(bres, bmy)) {
-            
-            printf("count = %lu\n", count);
-            printf("bres = %.100e\n", convertP32ToDouble(bres));
-            printf("bmy  = %.100e\n", convertP32ToDouble(bmy));
-            wrongRlibmCount++;
-            unsigned int error = m_ulpf(bres, bmy);
-            if (error > maxUlpRlibm) {
-                maxUlpRlibm = error;
-                maxXRlibm = x;
-            }
-        }
+        if (!p32_eq(bres, bmy)) wrongRlibmCount++;
         
-        if (!p32_eq(bdy,bmy)) {
-            wrongDMlibCount++;
-            unsigned int error = m_ulpf(bdy, bmy);
-            if (error > maxUlpDMlib) {
-                maxUlpDMlib = error;
-                maxXDMlib = x;
-            }
-        }
+        if (!p32_eq(bdy,bmy)) wrongDMlibCount++;
         
         if (count % 1000000 == 0) {
             printf("count = %lu (%lu)\r", count, wrongRlibmCount);
@@ -142,19 +119,15 @@ void RunCorrectnessTest(char const* FunctionName, char* resFileName) {
     
     fprintf(f, "%s TEST RESULT:\n", FunctionName);
     if (wrongRlibmCount == 0) {
-        fprintf(f, "RLIBM returns correct result for all inputs\n");
+        fprintf(f, "PWLIBM returns correct result for all inputs\n");
     } else {
-        fprintf(f, "RLIBM: Found %lu/%lu inputs with wrong result\n", wrongRlibmCount, count);
-        fprintf(f, "RLIBM's max ulp error: %u\n", maxUlpRlibm);
-        fprintf(f, "RLIBM max ulp error at: %.100e\n", convertP32ToDouble(maxXRlibm));
+        fprintf(f, "PWLIBM: Found %lu/%lu inputs with wrong result\n", wrongRlibmCount, count);
     }
     
     if (wrongDMlibCount == 0) {
-        fprintf(f, "Double MLIB returns correct result for all inputs\n");
+        fprintf(f, "GLibc's double library returns correct result for all inputs\n");
     } else {
-        fprintf(f, "Double MLIB: Found %lu/%lu inputs with wrong result\n", wrongDMlibCount, count);
-        fprintf(f, "Double MLIB's max ulp error: %u\n", maxUlpDMlib);
-        fprintf(f, "Double MLIB's max ulp error at: %.100e\n", convertP32ToDouble(maxXDMlib));
+        fprintf(f, "GLibc's double library: Found %lu/%lu inputs with wrong result\n", wrongDMlibCount, count);
     }
     
     fclose(f);

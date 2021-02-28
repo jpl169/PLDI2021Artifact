@@ -1,11 +1,4 @@
-#define MPFR_PREC 200
 #include "LibTestHelper.h"
-
-posit32_t MpfrCalculate(posit32_t x) {
-    mpfr_set_d(mval, convertP32ToDouble(x), MPFR_RNDN);
-    mpfr_log(mval, mval, MPFR_RNDN);
-    return FromMPFR(mval);
-}
 
 posit32_t dMlibTest(posit32_t x) {
     double result = log(convertP32ToDouble(x));
@@ -23,7 +16,7 @@ int main(int argc, char** argv) {
         exit(0);
     }
     
-    RunCorrectnessTest("Posit32 - Log", argv[1]);
+    RunCorrectnessTest("Posit32 - Log(x)", argv[1]);
     
     return 0;
 }

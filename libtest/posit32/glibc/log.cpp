@@ -23,7 +23,7 @@ int main(int argc, char** argv) {
         exit(0);
     }
     
-    RunCorrectnessTest("Posit32 - Log", argv[1]);
+    RunCorrectnessTest("Posit32 - Log(x)", argv[1]);
     
     return 0;
 }
