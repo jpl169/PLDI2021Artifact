@@ -1,3 +1,3 @@
-./Log10 Posit32Log10Data
-./Log Posit32LogData
-./Log2 Posit32Log2Data
+echo -e "Log10"; time ./Log10 Posit32Log10Data
+echo -e "Log"; time ./Log Posit32LogData
+echo -e "Log2"; time ./Log2 Posit32Log2Data

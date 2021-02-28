@@ -1,3 +1,3 @@
-./Log ../../intervals/Posit32LogData Log.log Log.h
-./Log2 ../../intervals/Posit32Log2Data Log2.log Log2.h
-./Log10 ../../intervals/Posit32Log10Data Log10.log Log10.h
+echo -e "Log"; time ./Log ../../intervals/Posit32LogData Log.log Log.h
+echo -e "Log2"; time ./Log2 ../../intervals/Posit32Log2Data Log2.log Log2.h
+echo -e "Log10"; time ./Log10 ../../intervals/Posit32Log10Data Log10.log Log10.h
