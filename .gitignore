@@ -4,3 +4,4 @@ backup/**
 **/*.lp
 testing/
 intervals/
+**/*_Result.txt

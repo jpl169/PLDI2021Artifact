@@ -28,12 +28,16 @@ make --silent
 cat Commands.txt | parallel -j $parallelism
 make clean
 
-echo -e "\033[1m* Performing math library overhead test \033[0m"
-echo -e "\033[1m\tParallelism: $parallelism jobs\033[0m"
 echo -e "\033[1m\t* PWLibm against Intel math library \033[0m"
 cd ../intel
 make --silent clean
 make --silent
 cat Commands.txt | parallel -j $parallelism
 make clean
+echo -e "\033[1m\tMath library overhead test done \033[0m"
 
+echo -e "\033[1m* Generating overhead graph \033[0m"
+cd ../../..
+python3 floatOverheadGlibc.py
+python3 floatOverheadIntel.py
+echo -e "\033[1m\tGraph generation done \033[0m"
