@@ -66,8 +66,6 @@ void IntervalGenerator::GuessInitialLbUb(double x,
                                          double roundingLb, double roundingUb,
                                          double xp, double& lb, double& ub) {
     // Take a guess of yp that will end up in roundingLb, roundingUb.
-    //printf("roundingLb : %.100e\n", roundingLb);
-    //printf("roundingUb : %.100e\n", roundingUb);
     doubleX tempYp;
     tempYp.d = log1p(xp) / log(10);
     //printf("tempYp     : %.100e\n", tempYp.d);
@@ -84,7 +82,8 @@ void IntervalGenerator::GuessInitialLbUb(double x,
         
         // Then, it had better be that roundingLb <= tempY <= roundingUb.
         if (tempY > roundingUb) {
-            printf("Error during GuessInitialLbUb: lb > ub.\n");
+            
+            printf("Error during GuessInitialLbUb 1: lb > ub.\n");
             printf("x = %.100e\n", x);
             exit(0);
         }
@@ -99,11 +98,11 @@ void IntervalGenerator::GuessInitialLbUb(double x,
         do {
             tempYp.x--;
             tempY = OutputCompensation(x, tempYp.d);
-        } while (tempY > roundingLb);
+        } while (tempY > roundingUb);
         
         // Then, it had better be that roundingLb <= tempY <= roundingUb.
         if (tempY < roundingLb) {
-            printf("Error during GuessInitialLbUb: lb > ub.\n");
+            printf("Error during GuessInitialLbUb 2: lb > ub.\n");
             printf("x = %.100e\n", x);
             exit(0);
         }
@@ -133,8 +132,12 @@ int main(int argc, char** argv) {
         exit(0);
     }
     
+    posit32 tempX = 9.8500949144363403320312500000000000000000000000000000000000000000000000000000000000000000000000000000e-01;
+    
+    
+    
     IntervalGenerator Log2IntGen;
-    Log2IntGen.CreateReducedIntervalFile(argv[1]);
+    Log2IntGen.CreateReducedIntervalFile(tempX.value, tempX.value + 1, argv[1]);
     
     mpfr_clear(mval);
     return 0;

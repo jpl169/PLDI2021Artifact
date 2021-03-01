@@ -99,7 +99,7 @@ void IntervalGenerator::GuessInitialLbUb(double x,
         do {
             tempYp.x--;
             tempY = OutputCompensation(x, tempYp.d);
-        } while (tempY > roundingLb);
+        } while (tempY > roundingUb);
         
         // Then, it had better be that roundingLb <= tempY <= roundingUb.
         if (tempY < roundingLb) {
