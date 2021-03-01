@@ -205,7 +205,6 @@ void IntervalGenerator::SortIntervalFile(string source, string dest) {
     // Read intervals into sorted map. Output intervals to temp files, 40M
     // intervals at a time.
     unsigned long long int counter = 0;
-    printf("Reading files and splitting to 40million intervals at a time\n");
     while (fread(data, sizeof(double), 3, f) == 3) {
         if (data[1] <= -1.0e300 && data[2] >= 1.0e300) {
             
@@ -223,19 +222,13 @@ void IntervalGenerator::SortIntervalFile(string source, string dest) {
         }
         
         counter++;
-        if (counter % 1000000llu == 0llu) {
-            printf("counter = %llu, interval.size() = %lu\r", counter, intervals.size());
-            fflush(stdout);
-        }
         
         // If there's 40M intervals, then save intervals to a temp file.
         if (intervals.size() == 40000000) {
-            printf("Writing a new file\n");
             string newFileName = GetNewFileName(source);
             SaveIntervalsToAFile(intervals, newFileName);
             tempFiles.push(newFileName);
             intervals.clear();
-            printf("Done writing a new file\n");
         }
     }
     
@@ -264,10 +257,6 @@ void IntervalGenerator::SortIntervalFile(string source, string dest) {
         remove(tempFile2.c_str());
         
         tempFiles.push(newFileName);
-        printf("Merged %s and %s to %s\n",
-               tempFile1.c_str(),
-               tempFile2.c_str(),
-               newFileName.c_str());
     }
     
     // If there is only one file left in the queue, then we rename it to filename
@@ -295,10 +284,6 @@ void IntervalGenerator::MergeFiles(string s1, string s2, string d) {
     
     while(true) {
         counter++;
-        if (counter >= 1000000) {
-            printf("Working with lines %d, %d\r", f1Read, f2Read);
-            counter = 0;
-        }
         
         if (f1More && f1data[0] == toAdd[0]) {
             if (f1data[1] > toAdd[1]) toAdd[1] = f1data[1];
@@ -358,13 +343,8 @@ void IntervalGenerator::ComputeReducedIntervals(unsigned long long xlow,
     for (inputX = xlow; inputX < xhigh; inputX++) {
         posit32 input;
         input.value = inputX;
-        if (inputX % 1000000 == 0) {
-            printf("inputX = %llu (x = %.5e)\r", inputX, input.toDouble());
-            fflush(stdout);
-        }
         ComputeReducedInterval(input, file);
     }
-    printf("\n");
 }
 
 void IntervalGenerator::ComputeReducedInterval(posit32 input, FILE* file) {
@@ -696,7 +676,6 @@ void SaveIntervalsToAFile(std::map<double, IntData> intervals,
                           string newFileName) {
     
     std::map<double, IntData>::iterator it;
-    printf("Creating file %s\n", newFileName.c_str());
     FILE* tf = fopen(newFileName.c_str(), "w");
     for (it = intervals.begin(); it != intervals.end(); it++) {
         fwrite(&it->first, sizeof(double), 1, tf);
