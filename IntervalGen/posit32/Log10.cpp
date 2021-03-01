@@ -132,12 +132,8 @@ int main(int argc, char** argv) {
         exit(0);
     }
     
-    posit32 tempX = 9.8500949144363403320312500000000000000000000000000000000000000000000000000000000000000000000000000000e-01;
-    
-    
-    
     IntervalGenerator Log2IntGen;
-    Log2IntGen.CreateReducedIntervalFile(tempX.value, tempX.value + 1, argv[1]);
+    Log2IntGen.CreateReducedIntervalFile(argv[1]);
     
     mpfr_clear(mval);
     return 0;
