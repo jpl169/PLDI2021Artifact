@@ -1,0 +1,10 @@
+./Exp Exp_FIResult.txt
+./Exp2 Exp2_FIResult.txt
+./Exp10 Exp10_FIResult.txt
+./Log Log_FIResult.txt
+./Log2 Log2_FIResult.txt
+./Log10 Log10_FIResult.txt
+./Sinh Sinh_FIResult.txt
+./Cosh Cosh_FIResult.txt
+./Sinpi Sinpi_FIResult.txt
+./Cospi Cospi_FIResult.txt

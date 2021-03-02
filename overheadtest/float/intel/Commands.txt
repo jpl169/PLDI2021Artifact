@@ -1,0 +1,10 @@
+./Log Log_FI_Result.txt
+./Log2 Log2_FI_Result.txt
+./Log10 Log10_FI_Result.txt
+./Exp Exp_FI_Result.txt
+./Exp2 Exp2_FI_Result.txt
+./Exp10 Exp10_FI_Result.txt
+./Sinh Sinh_FI_Result.txt
+./Cosh Cosh_FI_Result.txt
+./Sinpi Sinpi_FI_Result.txt
+./Cospi Cospi_FI_Result.txt
