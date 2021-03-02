@@ -1,3 +1,0 @@
-echo -e "Log"; time ./Log Log_PGResult.txt
-echo -e "Log2"; time ./Log2 Log2_PGResult.txt
-echo -e "Log10"; time ./Log10 Log10_PGResult.txt
