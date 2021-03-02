@@ -1,0 +1,3 @@
+./Log Log_PI_Result.txt
+./Log2 Log2_PI_Result.txt
+./Log10 Log10_PI_Result.txt

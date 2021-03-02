@@ -1,0 +1,8 @@
+./Log Log_FG_Result.txt
+./Log2 Log2_FG_Result.txt
+./Log10 Log10_FG_Result.txt
+./Exp Exp_FG_Result.txt
+./Exp2 Exp2_FG_Result.txt
+./Exp10 Exp10_FG_Result.txt
+./Sinh Sinh_FG_Result.txt
+./Cosh Cosh_FG_Result.txt

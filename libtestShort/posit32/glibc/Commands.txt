@@ -1,0 +1,3 @@
+./Log Log_PGResult.txt
+./Log2 Log2_PGResult.txt
+./Log10 Log10_PGResult.txt
