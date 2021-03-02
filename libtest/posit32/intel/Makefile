@@ -1,6 +1,6 @@
 CC = $(ICCPATH)/bin/icc
 
-objects = log2 log log10
+objects = Log2 Log Log10
 
 all: $(objects)
 
