@@ -1,0 +1,2 @@
+./Cosh FloatSinhForCoshData FloatCoshForCoshData
+./Sinh FloatSinhForSinhData FloatCoshForSinhData
