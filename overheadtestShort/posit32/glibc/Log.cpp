@@ -25,7 +25,7 @@ posit32_t rlibmTest(posit32_t x, unsigned long* time) {
 int main(int argc, char** argv) {
 
     if (argc != 2) {
-        printf("UsageL %s <output file>\n", argv[0]);
+        printf(1000000, "UsageL %s <output file>\n", argv[0]);
         exit(0);
     }
     

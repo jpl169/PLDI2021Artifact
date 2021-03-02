@@ -8,7 +8,7 @@ float fMlibTest(float x, unsigned long* time);
 float dMlibTest(float x, unsigned long* time);
 float rlibmTest(float x, unsigned long* time);
 
-void RunTest(char* FileName) {
+void RunTest(unsigned numTest, char* FileName) {
     unsigned long count = 0;
     unsigned long rlibmTime = 0;
     unsigned long fMlibTime = 0;
@@ -17,8 +17,10 @@ void RunTest(char* FileName) {
 
     float x;
     floatX xbase;
-    for (count = 0x0; count < 0x100000000; count++) {
-        xbase.x = count;
+    
+    unsigned long step = 0x100000000llu / (unsigned long)numTest;
+    for (count = 0x0; count < numTest; count++) {
+        xbase.x = count * step;
         x = xbase.f;
         
         float bres = rlibmTest(x, &rlibmTime);
