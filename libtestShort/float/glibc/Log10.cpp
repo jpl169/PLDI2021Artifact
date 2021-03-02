@@ -32,6 +32,6 @@ int main(int argc, char** argv) {
         exit(0);
     }
     
-    RunCorrectnessTest(500000, "Log10(x)", argv[1]);
+    RunCorrectnessTest(1000000, "Log10(x)", argv[1]);
     return 0;
 }

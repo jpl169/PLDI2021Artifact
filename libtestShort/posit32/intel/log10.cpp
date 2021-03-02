@@ -15,6 +15,6 @@ int main(int argc, char** argv) {
         exit(0);
     }
     
-    RunCorrectnessTest("Posit32 - Log10(x)", argv[1]);
+    RunCorrectnessTest(1000000, "Posit32 - Log10(x)", argv[1]);
     return 0;
 }
