@@ -41,7 +41,7 @@ posit32_t rlibm_log2(posit32_t x) {
     y *= dX.d;
     
     // Output compensation
-    double retVal = log2OneByF[FIndex];
+    double retVal = log2Lut[FIndex];
     retVal += m;
     retVal += y;
     return convertDoubleToP32(retVal);
