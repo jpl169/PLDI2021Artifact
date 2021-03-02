@@ -38,6 +38,6 @@ echo -e "\033[1m\tMath library overhead test done \033[0m"
 
 echo -e "\033[1m* Generating overhead graph \033[0m"
 cd ../../..
-python3 floatOverheadGlibc.py
-python3 floatOverheadIntel.py
+python3 floatOverheadGlibcShort.py
+python3 floatOverheadIntelShort.py
 echo -e "\033[1m\tGraph generation done \033[0m"
