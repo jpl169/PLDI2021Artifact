@@ -25,9 +25,7 @@ echo -e "\033[1m\tCompilation finished\033[0m"
 echo -e "\033[1m* Generating reduced intervals. This will take a long time\033[0m"
 echo -e "\033[1m\tRunning generation script in parallel\033[0m"
 echo -e "\033[1m\tParallelism: $parallelism jobs\033[0m"
-echo -e "\033[1m\tApproximate Time required for each job:\033[0m"
-echo -e "\t\tCosh(x): 30min"
-echo -e "\t\tSinh(x): 25min"
+echo -e "\033[1m\tEstimated time: 30 minutes\033[0m"
 cat IntGenCommandsShort.txt | parallel -j $parallelism
 
 echo -e "\033[1m\tInterval generation complete\033[0m"

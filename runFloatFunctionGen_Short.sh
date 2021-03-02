@@ -25,7 +25,7 @@ echo -e "\033[1m\tCompilation finished\033[0m"
 echo -e "\033[1m* Generating polynomial. This will take a long time\033[0m"
 echo -e "\033[1m\tRunning generation script in parallel\033[0m"
 echo -e "\033[1m\tParallelism: $parallelism jobs\033[0m"
-echo -e "\033[1m\tEstimated time: 3 hours\033[0m"
+echo -e "\033[1m\tEstimated time: 15 minutes\033[0m"
 cat FuncGenCommandsShort.txt | parallel -j $parallelism
 
 echo -e "\033[1m\tPolynomial generation complete\033[0m"
