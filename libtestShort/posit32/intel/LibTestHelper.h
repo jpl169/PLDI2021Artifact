@@ -6,13 +6,15 @@
 posit32_t dMlibTest(posit32_t x);
 posit32_t rlibmTest(posit32_t x);
 
-void RunCorrectnessTest(char const* FunctionName, char* resFileName) {
+void RunCorrectnessTest(unsigned numTest, char const* FunctionName, char* resFileName) {
     unsigned long wrongDMlibCount = 0;
     unsigned long count = 0;
 
     posit32_t x;
-    for (count = 0x0; count < 0x100000000; count++) {
-        x.v = count;
+    
+    unsigned long long step = 0x100000000llu / (unsigned long long)numTest;
+    for (count = 0x0; count < numTest; count++) {
+        x.v = count * step;
         
         posit32_t bres = rlibmTest(x);
         posit32_t bdy = dMlibTest(x);

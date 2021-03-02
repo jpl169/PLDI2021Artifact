@@ -89,7 +89,7 @@ unsigned int m_ulpf(posit32_t x, posit32_t y) {
     return y.v - x.v;
 }
 
-void RunCorrectnessTest(char const* FunctionName, char* resFileName) {
+void RunCorrectnessTest(unsigned numTest, char const* FunctionName, char* resFileName) {
     mpfr_init2(mval, MPFR_PREC);
 
     unsigned long wrongRlibmCount = 0;
@@ -97,8 +97,10 @@ void RunCorrectnessTest(char const* FunctionName, char* resFileName) {
     unsigned long count = 0;
 
     posit32_t x;
-    for (count = 0; count < 0x100000000; count++) {
-        x.v = count;
+    
+    unsigned long long step = 0x100000000llu / (unsigned long long)numTest;
+    for (count = 0; count < numTest; count++) {
+        x.v = count * step;
         
         posit32_t bmy = MpfrCalculate(x);
         posit32_t bres = rlibmTest(x);
@@ -106,13 +108,7 @@ void RunCorrectnessTest(char const* FunctionName, char* resFileName) {
         
         // Otherwise check if the output is correct
         if (!p32_eq(bres, bmy)) wrongRlibmCount++;
-        
         if (!p32_eq(bdy,bmy)) wrongDMlibCount++;
-        
-        if (count % 1000000 == 0) {
-            printf("count = %lu (%lu)\r", count, wrongRlibmCount);
-            fflush(stdout);
-        }
     }
     
     FILE* f = fopen(resFileName, "w");

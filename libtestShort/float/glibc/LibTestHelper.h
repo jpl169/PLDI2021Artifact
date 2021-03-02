@@ -93,9 +93,9 @@ void RunCorrectnessTest(unsigned numTest, char const* FunctionName, char* resFil
     float x;
     floatX xbase;
     
-    unsigned long long step = 0x100000000llu / (unsigned long long)numTest
+    unsigned long long step = 0x100000000llu / (unsigned long long)numTest;
     for (count = 0; count < numTest; count++) {
-        xbase.x = count * step;;
+        xbase.x = count * step;
         x = xbase.f;
         
         float bmy = MpfrCalculate(x);
