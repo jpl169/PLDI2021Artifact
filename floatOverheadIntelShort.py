@@ -15,7 +15,7 @@ againstDouble = []
 fileName = ["Log_FI_Result.txt", "Log2_FI_Result.txt", "Log10_FI_Result.txt", "Exp_FI_Result.txt", "Exp2_FI_Result.txt", "Exp10_FI_Result.txt", "Sinh_FI_Result.txt", "Cosh_FI_Result.txt", "Sinpi_FI_Result.txt", "Cospi_FI_Result.txt"]
 
 for i in range(0, 10) :
-    fp = open("overheadtest/float/intel/" + fileName[i], "r")
+    fp = open("overheadtestShort/float/intel/" + fileName[i], "r")
     line = fp.readline()
     line = line.split(",")
     againstFloat.append(float(line[0]))
