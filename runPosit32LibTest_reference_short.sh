@@ -35,6 +35,7 @@ cat Commands.txt | parallel -j $parallelism
 make clean
 
 echo -e "\033[1m\tResult: \033[0m"
+cd ..
 cat glibc/Log_PGResult.txt
 cat intel/Log_PIResult.txt
 cat glibc/Log2_PGResult.txt
@@ -42,4 +43,4 @@ cat intel/Log2_PIResult.txt
 cat glibc/Log10_PGResult.txt
 cat intel/Log10_PIResult.txt
 
-cd ../../..
+cd ../..

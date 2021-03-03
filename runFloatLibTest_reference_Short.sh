@@ -59,4 +59,4 @@ cat intel/Sinpi_FIResult.txt
 cat glibc/Cospi_FGResult.txt
 cat intel/Cospi_FIResult.txt
 
-cd ../../..
+cd ../..
