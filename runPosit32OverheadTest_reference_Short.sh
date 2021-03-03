@@ -38,5 +38,5 @@ echo -e "\033[1m\tMath library overhead test done \033[0m"
 
 echo -e "\033[1m* Posit32 overhead output \033[0m"
 cd ../../..
-python3 posit32OverheadGlibc.py
-python3 posit32OverheadIntel.py
+python3 posit32OverheadGlibcShort.py
+python3 posit32OverheadIntelShort.py
