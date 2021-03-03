@@ -21,42 +21,42 @@ echo -e "\033[1m\tBuilding done \033[0m"
 
 echo -e "\033[1m* Performing math library correctness test \033[0m"
 echo -e "\033[1m\tParallelism: $parallelism jobs\033[0m"
-echo -e "\033[1m\t* PWLibm and GLibc math library correctness test \033[0m"
+
 cd libtestShort/float/glibc
 make --silent clean
 make --silent
 cat Commands.txt | parallel -j $parallelism
 make --silent clean
 
-echo -e "\033[1m\tResult: \033[0m"
-cat Exp_FGResult.txt
-cat Exp2_FGResult.txt
-cat Exp10_FGResult.txt
-cat Log_FGResult.txt
-cat Log2_FGResult.txt
-cat Log10_FGResult.txt
-cat Sinh_FGResult.txt
-cat Cosh_FGResult.txt
-echo -e "\033[1m\tPWLibm and GLibc math library test complete \033[0m"
-
-echo -e "\033[1m\t* PWLibm against Intel math library test \033[0m"
 cd ../intel
 make --silent clean
 make --silent
 cat Commands.txt | parallel -j $parallelism
 make --silent clean
+echo -e "\033[1m\tMath library correctness test complete \033[0m"
+
 
 echo -e "\033[1m\tResult: \033[0m"
-cat Exp_FIResult.txt
-cat Exp2_FIResult.txt
-cat Exp10_FIResult.txt
-cat Log_FIResult.txt
-cat Log2_FIResult.txt
-cat Log10_FIResult.txt
-cat Sinh_FIResult.txt
-cat Cosh_FIResult.txt
-cat Sinpi_FIResult.txt
-cat Cospi_FIResult.txt
-echo -e "\033[1m\tPWLibm against Intel math library test complete \033[0m"
+cd ..
+cat glibc/Log_FGResult.txt
+cat intel/Log_FIResult.txt
+cat glibc/Log2_FGResult.txt
+cat intel/Log2_FIResult.txt
+cat glibc/Log10_FGResult.txt
+cat intel/Log10_FIResult.txt
+cat glibc/Exp_FGResult.txt
+cat intel/Exp_FIResult.txt
+cat glibc/Exp2_FGResult.txt
+cat intel/Exp2_FIResult.txt
+cat glibc/Exp10_FGResult.txt
+cat intel/Exp10_FIResult.txt
+cat glibc/Sinh_FGResult.txt
+cat intel/Sinh_FIResult.txt
+cat glibc/Cosh_FGResult.txt
+cat intel/Cosh_FIResult.txt
+cat glibc/Sinpi_FGResult.txt
+cat intel/Sinpi_FIResult.txt
+cat glibc/Cospi_FGResult.txt
+cat intel/Cospi_FIResult.txt
 
 cd ../../..

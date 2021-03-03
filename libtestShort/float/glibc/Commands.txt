@@ -6,3 +6,5 @@
 ./Log10 Log10_FGResult.txt
 ./Sinh Sinh_FGResult.txt
 ./Cosh Cosh_FGResult.txt
+./Sinpi Sinpi_FGResult.txt
+./Cospi Cospi_FGResult.txt
