@@ -108,11 +108,6 @@ void RunCorrectnessTest(char const* FunctionName, char* resFileName) {
         if (!p32_eq(bres, bmy)) wrongRlibmCount++;
         
         if (!p32_eq(bdy,bmy)) wrongDMlibCount++;
-        
-        if (count % 1000000 == 0) {
-            printf("count = %lu (%lu)\r", count, wrongRlibmCount);
-            fflush(stdout);
-        }
     }
     
     FILE* f = fopen(resFileName, "w");

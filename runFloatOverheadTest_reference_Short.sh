@@ -26,14 +26,14 @@ cd overheadtestShort/float/glibc
 make --silent clean
 make --silent
 cat Commands.txt | parallel -j $parallelism
-make clean
+make -silent clean
 
 echo -e "\033[1m\t* PWLibm against Intel math library \033[0m"
 cd ../intel
 make --silent clean
 make --silent
 cat Commands.txt | parallel -j $parallelism
-make clean
+make --silent clean
 echo -e "\033[1m\tMath library overhead test done \033[0m"
 
 echo -e "\033[1m* Generating overhead graph \033[0m"
