@@ -2,6 +2,8 @@
 #include "softposit.h"
 #include "stdio.h"
 #include "mathimf.h"
+#include "stdlib.h"
+#include "stdlib.h"
 
 posit32_t dMlibTest(posit32_t x);
 posit32_t rlibmTest(posit32_t x);

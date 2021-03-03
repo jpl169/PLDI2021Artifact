@@ -1,6 +1,7 @@
 #include "float_math.h"
 #include "stdio.h"
 #include "mathimf.h"
+#include "stdlib.h"
 
 float fMlibTest(float x);
 float dMlibTest(float x);

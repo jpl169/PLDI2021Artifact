@@ -3,6 +3,7 @@
 #include "softposit.h"
 #include "stdio.h"
 #include "math.h"
+#include "stdlib.h"
 
 mpfr_t mval;
 
