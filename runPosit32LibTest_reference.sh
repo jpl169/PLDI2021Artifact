@@ -28,13 +28,6 @@ make --silent
 cat Commands.txt | parallel -j $parallelism
 make clean
 
-echo -e "\033[1m\tResult: \033[0m"
-cat Log_PGResult.txt
-cat Log2_PGResult.txt
-cat Log10_PGResult.txt
-echo -e "\033[1m\tPWLibm and GLibc math library test complete \033[0m"
-
-echo -e "\033[1m\t* PWLibm against Intel math library test \033[0m"
 cd ../intel
 make --silent clean
 make --silent
@@ -42,9 +35,13 @@ cat Commands.txt | parallel -j $parallelism
 make clean
 
 echo -e "\033[1m\tResult: \033[0m"
-cat Log_PIResult.txt
-cat Log2_PIResult.txt
-cat Log10_PIResult.txt
-echo -e "\033[1m\tPWLibm against Intel math library test complete \033[0m"
+cd ..
+cat glibc/Log_PGResult.txt
+cat intel/Log_PIResult.txt
+cat glibc/Log2_PGResult.txt
+cat intel/Log2_PIResult.txt
+cat glibc/Log10_PGResult.txt
+cat intel/Log10_PIResult.txt
 
-cd ../../..
+cd ../..
+

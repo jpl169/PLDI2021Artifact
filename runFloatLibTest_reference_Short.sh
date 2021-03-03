@@ -1,6 +1,6 @@
 #!/bin/bash
 
-parallelism=8
+parallelism=4
 
 while getopts j: flag
 do

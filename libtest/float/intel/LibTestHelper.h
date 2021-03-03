@@ -36,7 +36,6 @@ void RunCorrectnessTest(char const* FunctionName, char* resFileName) {
     
     FILE* f = fopen(resFileName, "w");
     
-    fprintf(f, "%s TEST RESULT:\n", FunctionName);
     if (wrongFMlibCount == 0) {
         fprintf(f, "Intel's float library correct result for all inputs\n");
     } else {

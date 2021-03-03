@@ -159,3 +159,56 @@ void RunCorrectnessTest(unsigned long start, unsigned long end,
     fclose(f);
     mpfr_clear(mval);
 }
+
+void RunCorrectnessTestForPIs(unsigned long start, unsigned long end,
+                        char const* FunctionName, char* resFileName) {
+    mpfr_init2(mval, MPFR_PREC);
+
+    unsigned long wrongRlibmCount = 0;
+    unsigned long wrongFMlibCount = 0;
+    unsigned long wrongDMlibCount = 0;
+    unsigned long count = 0;
+
+    unsigned int maxUlpRlibm = 0;
+    unsigned int maxUlpFMlib = 0;
+    unsigned int maxUlpDMlib = 0;
+    float maxXRlibm = 0;
+    float maxXFMlib = 0;
+    float maxXDMlib = 0;
+
+    float x;
+    floatX xbase;
+    for (count = start; count < end; count++) {
+        xbase.x = count;
+        x = xbase.f;
+        
+        float bmy = MpfrCalculate(x);
+        float bres = rlibmTest(x);
+        
+        // if bres is nan and bmy is nan, continue
+        if (bres != bres && bmy != bmy) continue;
+        
+        // Otherwise check if the output is correct
+        if (bres != bmy) {
+            wrongRlibmCount++;
+            unsigned int error = m_ulpf(bres, bmy);
+            if (error > maxUlpRlibm) {
+                maxUlpRlibm = error;
+                maxXRlibm = x;
+            }
+        }
+    }
+    
+    FILE* f = fopen(resFileName, "w");
+    
+    fprintf(f, "%s TEST RESULT:\n", FunctionName);
+    if (wrongRlibmCount == 0) {
+        fprintf(f, "PWLIBM returns correct result for all inputs\n");
+    } else {
+        fprintf(f, "PWLIBM: Found %lu/%lu inputs with wrong result\n", wrongRlibmCount, count);
+    }
+    
+    fclose(f);
+    mpfr_clear(mval);
+}
+
