@@ -139,9 +139,9 @@ void RunCorrectnessTest(unsigned long start, unsigned long end,
     
     fprintf(f, "%s TEST RESULT:\n", FunctionName);
     if (wrongRlibmCount == 0) {
-        fprintf(f, "PRLIBM returns correct result for all inputs\n");
+        fprintf(f, "PWLIBM returns correct result for all inputs\n");
     } else {
-        fprintf(f, "PRLIBM: Found %lu/%lu inputs with wrong result\n", wrongRlibmCount, count);
+        fprintf(f, "PWLIBM: Found %lu/%lu inputs with wrong result\n", wrongRlibmCount, count);
     }
     
     if (wrongFMlibCount == 0) {
